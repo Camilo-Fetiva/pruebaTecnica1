@@ -1,7 +1,8 @@
 // IMPORTAR LAS DEPENDENCIAS
-import express from 'express'; //importar express para la prueba en la terminal
+import express, { json } from 'express'; //importar express para la prueba en la terminal
 import dotenv from 'dotenv'; //Dependencia para manejar variables de entorno
 import { connectionMongo } from './src/config/database.js'; // dependencia para conectar la base de datos
+import { userRouter } from './src/routes/users.routes.js';
 
 
 // CONFIGURAR EL USO DEL SERVIDOR CON MONGO
@@ -9,6 +10,9 @@ const app = express();
 dotenv.config();
 const port = process.env.PORT;
 
+// RUTA DE LOS USUARIOS
+app.use(express,json());
+app.use('/usuarios', userRouter);
 
 app.use(express.json()); //USAR JSON PARA LAS PETICIONES
 
