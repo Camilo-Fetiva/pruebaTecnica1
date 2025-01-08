@@ -1,0 +1,23 @@
+.background{
+    background-image: url(/assets/img-banner.jpg);
+    background-size: cover;
+    height: 100vh;
+}
+
+.formulario{
+    background-color: whitesmoke;
+    width: 50%;
+    padding: 24px;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+
+h1{
+    text-align: center;
+}
+
+.btn{
+    margin-right: 16px;
+}
