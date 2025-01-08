@@ -1,5 +1,5 @@
 // IMPORTAR LAS DEPENDENCIAS
-import { verifyToken } from "../lib/jwt";
+import { verifyToken } from "../lib/jwt.js";
 
 // FUNCION
 export function authToken(requieredRole){

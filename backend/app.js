@@ -11,7 +11,7 @@ dotenv.config();
 const port = process.env.PORT;
 
 // RUTA DE LOS USUARIOS
-app.use(express,json());
+app.use(express.json());
 app.use('/usuarios', userRouter);
 
 app.use(express.json()); //USAR JSON PARA LAS PETICIONES
