@@ -1,5 +1,5 @@
 // IMPORTAR DEPENDENCIAS
-import mongoose from 'moongose';
+import mongoose from 'mongoose';
 
 //2. Crear funcion para conectar la base de datos (Funcion asincronica -> necesaria al esperar una respuesta)
 export async function connectionMongo (){
