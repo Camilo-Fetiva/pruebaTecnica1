@@ -2,7 +2,8 @@
 
 // IMPORTAR LOS CONTROLADORES
 import { postUser, getUser, deleteUserById, putUserById } from "../controllers/user.controller.js";
-import express from 'express'
+import express from 'express';
+
 
 // Configurar el router de Express
 export const userRouter = express.Router();
