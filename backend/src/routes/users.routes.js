@@ -3,7 +3,7 @@
 // IMPORTAR LOS CONTROLADORES
 import { postUser, getUser, deleteUserById, putUserById } from "../controllers/user.controller.js";
 import express from 'express';
-
+import { authToken } from "../middleware/auth.js";
 
 // Configurar el router de Express
 export const userRouter = express.Router();
