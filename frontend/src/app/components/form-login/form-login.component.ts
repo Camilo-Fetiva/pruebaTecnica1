@@ -17,29 +17,25 @@ import { Users } from '../../interfases/users';
   styleUrl: './form-login.component.css'
 })
 export class FormLoginComponent {
-  // // INJECT
+  // INJECT
   _router = inject(Router);
   _users = inject(UsersService);
 
-  // // INFORMACION OBTENIDA DEL FORMULARIO
+  // INFORMACION OBTENIDA DEL FORMULARIO
   formLogin = new FormGroup({
-    email: new FormControl(''),
-    password: new FormControl(''),
+    Correo: new FormControl(''),
+    Contrasena: new FormControl(''),
   });
 
-  // // Almacenar usuarios obtenidos de la base de datos
+  // Almacenar usuarios obtenidos de la base de datos
   allUsers: Users[] = [];
-  Correo: string = '';
-  Contrasena: string = '';
 
-  // // Datos de prueba
-  admin = {
-    Correo: "ecoclosetAdmin",
-    Contrasena: "ecocloset",
-    Nombre: 'Camilo',
-  };
+  ngOnInit() {
+    // Obtener los usuarios desde la base de datos
+    this.obtenerUsuarios();
+  }
 
-  // // Función para obtener los usuarios desde la base de datos
+  // Función para obtener los usuarios desde la base de datos
   obtenerUsuarios() {
     this._users.getUsers().subscribe({
       next: (res: any) => {
@@ -53,32 +49,43 @@ export class FormLoginComponent {
     });
   }
 
-  // // Función de inicio de sesión
+  // Función de inicio de sesión
   iniciarSesion() {
+    const { Correo, Contrasena } = this.formLogin.value;  // Obtener los valores del formulario
+
     // Verificar si los campos están vacíos
-    if (!this.Correo || !this.Contrasena) {
+    if (!Correo || !Contrasena) {
       alert('Por favor ingresa tu correo y contraseña');
       return;
     }
 
-  //   // Verificar si es el inicio de sesión del administrador
-    if (this.Correo === this.admin.Correo && this.Contrasena === this.admin.Contrasena) {
-      // Redirigir al panel de administración
-      alert('Bienvenido a la Aventura ' + this.admin.Nombre);
-      this._router.navigate(['/']);
-      return;
-    }
+    // Verificar si es un usuario registrado
+    const usuarioEncontrado = this.allUsers.find(user =>
+      user.Correo.trim() === Correo.trim() &&
+      user.Contrasena.trim() === Contrasena.trim()
+    );
 
-  //   // VERIFICAR SI ES USUARIO
-    const usuarioEncontrado = this.allUsers.find(user => user.Correo === this.formLogin.value.email);
+    console.log('Usuarios cargados:', this.allUsers);
+    console.log('Usuario encontrado:', usuarioEncontrado);
+
+    console.log('Informacion obtenida del input email: '+
+      this.formLogin.value.Correo //<- Traer la variable creada y los valores dados y con el value se obtiene la info
+    );
+
+    console.log('Informacion obtenida del input password: '+
+      this.formLogin.value.Contrasena
+    );
 
     if (usuarioEncontrado) {
-      // El usuario fue encontrado
-      console.log('Usuario encontrado:', usuarioEncontrado);
+      alert('Bienvenido a la Aventura');
+      this._router.navigate(['/']);
     } else {
       // El usuario no fue encontrado
-      console.log('Correo no registrado');
+      console.log('Correo o contraseña incorrectos');
+      alert('Correo o contraseña incorrectos');
     }
   }
+
+ 
 
 }

@@ -2,15 +2,15 @@
     <section class="background">
         <section class="formulario">
             <h1>Formulario de Ingreso</h1>
-            <form>
+            <form >
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Correo</label>
                     <input 
                     type="email" 
                     class="form-control" 
                     id="exampleInputEmail1" required
-                    name="email"
-                    [(ngModel)]="Correo"
+                    name="Correo"
+                    [(ngModel)]="formLogin.value.Correo"
                     >
                 </div>
                 <div class="mb-3">
@@ -20,7 +20,7 @@
                     class="form-control" 
                     id="exampleInputPassword1" required
                     name="Contrasena"
-                    [(ngModel)]="Contrasena"
+                    [(ngModel)]="formLogin.value.Contrasena"
                     >
                 </div>
                 <button type="submit" class="btn btn-primary" (click)="iniciarSesion()" >Enviar</button>
