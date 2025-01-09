@@ -1,7 +1,7 @@
 // ARCHIVO PARA LA LOGICA NECESARIO DE LOS INICIOS DE SESION DE LOS USUARIOS
 
 // IMPORTAR MODULOS Y DEPENDENCIAS
-import { userModel } from "../models/users";
+import { userModel } from "../models/users.js";
 import { generateToken } from "../lib/jwt.js";
 import bcrypt from 'bcryptjs';
 

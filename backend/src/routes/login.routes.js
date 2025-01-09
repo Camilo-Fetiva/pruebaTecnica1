@@ -1,5 +1,5 @@
 // IMPORTAR MODULOS Y DEPENDENCIAS
-import { loginUser } from "../services/login.services";
+import { loginUser } from "../services/login.services.js";
 import express from 'express';
 
 // ROUTER DE EXPRESS
