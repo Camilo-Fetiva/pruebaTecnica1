@@ -4,7 +4,7 @@ import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 // INTERFAZ DE USUARIOS
-import { Users } from '../interfases/users';
+import { Users } from '../interfases/users.js';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +15,7 @@ export class UsersService {
  private _httpClient = inject(HttpClient);
 
  // RUTA DE CONEXION CON EL BACKEND
- private URL_USERS = 'http://localhost:3000/usuarios'; //404 no esta creado
+  private URL_USERS = 'http://localhost:3000/usuarios';
 
  // PETICIONES
 

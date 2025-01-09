@@ -5,13 +5,25 @@
             <form>
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Correo</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1">
+                    <input 
+                    type="email" 
+                    class="form-control" 
+                    id="exampleInputEmail1" required
+                    name="email"
+                    [(ngModel)]="Correo"
+                    >
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">Contrasena</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1">
+                    <input 
+                    type="password" 
+                    class="form-control" 
+                    id="exampleInputPassword1" required
+                    name="Contrasena"
+                    [(ngModel)]="Contrasena"
+                    >
                 </div>
-                <button type="submit" class="btn btn-primary">Enviar</button>
+                <button type="submit" class="btn btn-primary" (click)="iniciarSesion()" >Enviar</button>
                 <a routerLink="/"><button type="button" class="btn btn-success">Volver</button></a>
             </form>
         </section>
