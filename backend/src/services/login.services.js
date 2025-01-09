@@ -22,6 +22,8 @@ export async function loginUser(request, response){
         if(!userFound){
             return response.status(404).json({mensaje: 'Usuario no encontrado'});
         }
+
+        const user = userFound
         
         // VALIDACION DE LA CONTRASENA -> comparar la contrasena
 
